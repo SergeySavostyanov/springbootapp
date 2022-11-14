@@ -2,6 +2,7 @@ package com.springboot.app.springbootapp.service;
 
 import com.springboot.app.springbootapp.model.User;
 import com.springboot.app.springbootapp.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +25,12 @@ public class UserService implements UserServiceInt {
         return userRepository.findAll();
     }
 
+    @Transactional
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
     }
-
+    @Transactional
     @Override
     public void removeUser(Long id) {
         userRepository.deleteById(id);
