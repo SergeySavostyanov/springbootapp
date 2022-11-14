@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping
 public class UsersController {
 
     private final UserService userService;
@@ -28,13 +27,13 @@ public class UsersController {
         return "users";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     public String greetingForm(Model model) {
         model.addAttribute("user", new User());
         return "add";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping(value = "/add")
     public String greetingSubmit(@ModelAttribute User user, Model model) {
         model.addAttribute("user", user);
         userService.saveUser(user);
