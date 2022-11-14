@@ -10,8 +10,6 @@ import java.util.List;
 @Service
 public class UserService implements UserServiceInt {
     private UserRepository userRepository;
-
-    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
